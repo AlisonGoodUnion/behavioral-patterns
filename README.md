@@ -40,3 +40,11 @@ Padrões comportamentais utilizados
      mínimo possível de código já existente.
      Este é um dos principais pontos do princípio Aberto-Fechado (Open-Closed Principle) do SOLID. 
      Ao editar código existente, podemos acabar quebrando funcionalidades já implementadas e funcionais.
+
+#### Chain of Responsability:
+    Que tipo de problema o padrão Chain of Responsability visa resolver?
+
+    Diferente do Strategy, aqui eu não sei de cara o que quero aplicar.
+    Então precisamos verificar para cada tipo de ação se devemos aplicar ou não.
+    Então o primeiro tipo/etapa sabe se aplica ou passa para a próxima, vamos escalando o processo até a etapa final.
+         
