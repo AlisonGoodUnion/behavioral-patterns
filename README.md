@@ -32,3 +32,11 @@ Padrões comportamentais utilizados
     Este padrão pode ser utilizado quando há diversos possíveis algoritmos para uma ação (como calcular imposto, por exemplo).
     Outro exemplo seria: calcular custo ou tempo de uma viagem de carro, ônibus ou avisão
     Nele, nós separamos cada um dos possíveis algoritmos em classes separadas.
+
+##### Muitos IFs:
+     Diversos if podem ser um problema, e que ter uma classe que "pode crescer para sempre" também é um problema.
+        
+     Sempre que uma nova funcionalidade for implementada, o ideal é que possamos criar código novo e editar o 
+     mínimo possível de código já existente.
+     Este é um dos principais pontos do princípio Aberto-Fechado (Open-Closed Principle) do SOLID. 
+     Ao editar código existente, podemos acabar quebrando funcionalidades já implementadas e funcionais.
