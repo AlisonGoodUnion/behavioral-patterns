@@ -10,7 +10,7 @@ public class CalculadoraDeImpostos {
     public BigDecimal calcular(Orcamento orcamento, Imposto tipoImposto) {
 
         //Solucao: ao inves de usar switch, if, etc..
-        //podemos usar uma interface, com metodo calcular
+        //podemos usar uma interface, com metodo efetuarCalculo
         //que cada imposto deve implementar.
 
         //Agora se caso surgir um novo imposto, cada classe imposto tera a sua implementacao.

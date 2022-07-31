@@ -8,8 +8,8 @@ import orcamento.Orcamento;
 import java.math.BigDecimal;
 
 public class CalculadoraDeDescontos {
-    public BigDecimal calcular(Orcamento orcamento) {
 
+    public BigDecimal calcular(Orcamento orcamento) {
         //Solucao: Chain of Responsibility
         //Extrair cada if em uma classe
         //e cada classe sabe
@@ -19,8 +19,8 @@ public class CalculadoraDeDescontos {
 
         SemDesconto semDesconto = new SemDesconto();
         DescontoPorValor descontoPorValor = new DescontoPorValor(semDesconto);
-        DescontoPorQtdItem desconto = new DescontoPorQtdItem(descontoPorValor);
+        DescontoPorQtdItem cadeiaDeDescontos = new DescontoPorQtdItem(descontoPorValor);
 
-        return desconto.calcular(orcamento);
+        return cadeiaDeDescontos.efetuarCalculo(orcamento);
     }
 }

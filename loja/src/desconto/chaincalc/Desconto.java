@@ -18,8 +18,18 @@ abstract class Desconto {
         this.proximo = proximo;
     }
 
-    /**
-     * Cada classe filha vai ser obrigada a ter esse metodo
-     */
-    public abstract BigDecimal calcular(Orcamento orcamento);
+    //Esse e o Template Method
+    //as logicas sao delegadas para as classes filhas.
+    //assim evitamos a implementacao do if e proximo
+    //para cada classe filha.
+    public BigDecimal calcular(Orcamento orcamento) {
+        if (deveAplicar(orcamento)) {
+            return efetuarCalculo(orcamento);
+        }
+        return proximo.calcular(orcamento);
+    }
+
+    protected abstract BigDecimal efetuarCalculo(Orcamento orcamento);
+
+    protected abstract boolean deveAplicar(Orcamento orcamento);
 }

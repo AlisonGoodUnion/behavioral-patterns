@@ -48,3 +48,13 @@ Padrões comportamentais utilizados
     Então precisamos verificar para cada tipo de ação se devemos aplicar ou não.
     Então o primeiro tipo/etapa sabe se aplica ou passa para a próxima, vamos escalando o processo até a etapa final.
          
+#### Template Method
+    Que tipo de problema o padrão Chain of Responsability visa resolver?
+    O padrão Template Method favorece o reaproveitamento de códigos comuns entre classes,
+    evitando assim duplicações de códigos.
+
+    Criação de um método concreto na classe “mãe”,
+    que chama métodos abstratos implementados nas classes “filhas”.
+    Entao temos o "Metodo Modelo" que faz parte do template, mas outras partes ele delega!
+
+
