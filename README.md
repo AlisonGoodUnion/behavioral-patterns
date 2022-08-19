@@ -68,13 +68,19 @@ Padrões comportamentais utilizados
 #### Command
     Utilizado em aplicacoes que podem ter várias ações(salvar, enviar email etc...)
     A extração do caso de uso para uma classe, pode ser chamda de padrão command.
+    tem como Responsabilidade orquestrar tarefas a serem executadas. 
 
     Recebendo os dados e executando todas as tarefas no mesmo local, evitamos duplicacao de codigo
     e podemos reaproveitar a logica independente de qual caminho (api rest/input cmd/fila) for utilizado.
     evitando duplicar o código em vários lugares.
 
     Padrões de DDD e Clean Architecture utilizam bastante o Command Handle
-    
+
+    Separando em classes menores facilita a depuração.
+    Se o banco ou envio de email mudar o nosso command handle não precisa saber
+    então cada classe deve ser responsavel por uma pequena tarefa.
+
+#### Observer
 
 #### Simplificando SOLID
 Padrões convém com princípios SOLID: Objetivo escrever códigos mais limpos na POO
