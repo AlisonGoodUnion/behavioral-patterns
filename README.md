@@ -81,6 +81,11 @@ Padrões comportamentais utilizados
     então cada classe deve ser responsavel por uma pequena tarefa.
 
 #### Observer
+    A ideia e ter ouvintes ou observadores que quando ela for chamada executa a acao
+    entao a classe que dispara o evento tem a lista de observadores, ouvintes.
+    Evitamos varias chamadas de varias classes, invertendo controles, e deixando as classes
+    notificadas responsaveis por realizar a acao.
+    Aplicando Inversao de controle e Injecao de dependencias deixamos a class mais coesa.
 
 #### Simplificando SOLID
 Padrões convém com princípios SOLID: Objetivo escrever códigos mais limpos na POO

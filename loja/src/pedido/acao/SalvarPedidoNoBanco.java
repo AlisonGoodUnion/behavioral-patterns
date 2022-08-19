@@ -2,9 +2,10 @@ package pedido.acao;
 
 import pedido.Pedido;
 
-public class SalvarPedidoNoBanco {
+public class SalvarPedidoNoBanco implements AcaoAposGerarPedido {
 
-    public void executar(Pedido pedido) {
+    @Override
+    public void executarAcao(Pedido pedido) {
         System.out.println("Salvar pedido no banco");
     }
 }

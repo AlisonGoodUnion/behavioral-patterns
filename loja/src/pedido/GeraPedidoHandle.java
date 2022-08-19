@@ -1,15 +1,18 @@
 package pedido;
 
 import orcamento.Orcamento;
-import pedido.acao.EnviarEmailPedido;
-import pedido.acao.SalvarPedidoNoBanco;
+import pedido.acao.AcaoAposGerarPedido;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class GeraPedidoHandle {
+    private List<AcaoAposGerarPedido> acoes;
 
-    //constructor com injecao de dependencias repository, service...
-    public GeraPedidoHandle() {
+    //Agora o cosntrutor recebe lista de acoes
+    //codigo com menos dependencias.
+    public GeraPedidoHandle(List<AcaoAposGerarPedido> acoes) {
+        this.acoes = acoes;
     }
 
     //Separamos dados de construcao de comportamentos.
@@ -17,14 +20,6 @@ public class GeraPedidoHandle {
         //Logica de construcao agora fica centralizada aqui.
         Orcamento orcamento = new Orcamento(dados.getValorOrcamento(), dados.getQuantidadeItens());
         Pedido pedido = new Pedido(dados.getCliente(), LocalDateTime.now(), orcamento);
-
-        //Problematica: muita coesao e responsabilidade na classe GerarPedido devemos aplicar um padrão
-        //para extrair essas logicas
-        //pois a cada nova acao a classe cresce cada vez mais.
-        EnviarEmailPedido emailPedido = new EnviarEmailPedido();
-        emailPedido.executar(pedido);
-
-        SalvarPedidoNoBanco salvarPedidoNoBanco = new SalvarPedidoNoBanco();
-        salvarPedidoNoBanco.executar(pedido);
+        acoes.forEach(acao -> acao.executarAcao(pedido));
     }
 }
