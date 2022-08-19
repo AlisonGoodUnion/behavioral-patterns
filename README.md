@@ -65,6 +65,12 @@ Padrões comportamentais utilizados
     O Objeto pode se comportar de forma diferente conforme seu estado.
     podemos delegar a ação para uma classe específica do estado atual.
 
+#### Command
+    Recebendo os dados e executando todas as tarefas no mesmo local, evitamos duplicacao de codigo
+    e podemos reaproveitar a logica independente de qual caminho (api rest/input cmd/fila) for utilizado.
+    evitando duplicar o código em vários lugares.
+    
+
 #### Simplificando SOLID
 Padrões convém com princípios SOLID: Objetivo escrever códigos mais limpos na POO
 * S - Princípio da responsabilidade única (Single Responsibility Principle)

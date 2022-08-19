@@ -1,4 +1,5 @@
 import orcamento.Orcamento;
+import pedido.GeraPedido;
 import pedido.Pedido;
 
 import java.math.BigDecimal;
@@ -7,15 +8,14 @@ import java.time.LocalDateTime;
 public class TestesPedidos {
 
     public static void main(String[] args) {
-        Orcamento orcamento = new Orcamento(new BigDecimal("600"), 4);
-        String cliente = "Joao da Silva";
-        Pedido pedido = new Pedido(cliente, LocalDateTime.now(), orcamento);
+        String cliente = args[0];
+        BigDecimal valorOrcamento = new BigDecimal(args[2]);
+        int quantidadeItens = Integer.parseInt(args[3]);
 
-        //Simulacao de criaca de pedido
-        //Extrair essas logicas do codigo de apresentacao/construcao do pedido/cliente/orcamento.
-        System.out.println("Salvar pedido no banco");
-        System.out.println("Enviar email com dados do pedido.");
+        GeraPedido geraPedido = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
+        //independente de qual caminho, agora a construção fica dentro da classe GerarPedido
+        //ento a acao pode ser executada por command line ou rest api a logica fica centralizada
 
-
+        geraPedido.executa();
     }
 }
