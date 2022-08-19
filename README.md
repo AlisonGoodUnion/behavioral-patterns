@@ -57,6 +57,13 @@ Padrões comportamentais utilizados
     que chama métodos abstratos implementados nas classes “filhas”.
     Entao temos o "Metodo Modelo" que faz parte do template, mas outras partes ele delega!
 
+#### State
+    State resolve um problema parecido com o Strategy, evitamos muitos IFs
+    utilizado em transição de estado ou aplicar regra baseado em um status.
+    também utilizado em regras de transições de estados.
+
+    O Objeto pode se comportar de forma diferente conforme seu estado.
+    podemos delegar a ação para uma classe específica do estado atual.
 
 #### Simplificando SOLID
 Padrões convém com princípios SOLID: Objetivo escrever códigos mais limpos na POO

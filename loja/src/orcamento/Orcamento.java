@@ -1,37 +1,41 @@
 package orcamento;
 
+import orcamento.situacao.EmAnalise;
+import orcamento.situacao.SituacaoOrcamento;
+
 import java.math.BigDecimal;
-import java.util.List;
 
 public class Orcamento {
 
     private BigDecimal valor;
     private int quantidadeItens;
-    private String situacao;
+    private SituacaoOrcamento situacao;
 
     public Orcamento(BigDecimal valor, int quantidadeItens) {
         this.valor = valor;
         this.quantidadeItens = quantidadeItens;
+        this.situacao = new EmAnalise();
     }
 
-    //PROBLEMA: nova situacao de desconto (Desconto Extra)
-    //caso o cliente peça mais desconto como vamos fazer?.
+    //Solucao: aplicando abstração nao precisamos mais IF Else.
+    // entao para aplicar o desconto, pegamos a situacao atual
     public void aplicarDescontoExtra() {
-        BigDecimal valorDescontoExtra = BigDecimal.ONE;
-
-        if (situacao.equals("EM ANALISE")) {
-            valorDescontoExtra = new BigDecimal("0.05");
-        }
-        if (situacao.equals("APROVADO")) {
-            valorDescontoExtra = new BigDecimal("0.05");
-        }
-
+        BigDecimal valorDescontoExtra = this.situacao.calcularDescontoExtra(this);
         this.valor = this.valor.subtract(valorDescontoExtra);
     }
 
-    public void aprovar(){
-        //situacoes tem um anterior/proximo.
-        this.situacao= "APROVADO";
+    //e a regra para navegar esta em cada situacao
+    //cada situacao sabe se pode ou nao aprovar/reprovar/finalizar.
+    public void aprovar() {
+        this.situacao.aprovar(this);
+    }
+
+    public void reprovar() {
+        this.situacao.reprovar(this);
+    }
+
+    public void finalizar() {
+        this.situacao.finalizar(this);
     }
 
     public BigDecimal getValor() {
@@ -42,4 +46,11 @@ public class Orcamento {
         return this.quantidadeItens;
     }
 
+    public SituacaoOrcamento getSituacao() {
+        return this.situacao;
+    }
+
+    public void setSituacao(SituacaoOrcamento situacao) {
+        this.situacao = situacao;
+    }
 }
