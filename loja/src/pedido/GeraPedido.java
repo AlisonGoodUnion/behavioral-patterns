@@ -1,9 +1,6 @@
 package pedido;
 
-import orcamento.Orcamento;
-
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 public class GeraPedido {
 
@@ -11,18 +8,28 @@ public class GeraPedido {
     private BigDecimal valorOrcamento;
     private int quantidadeItens;
 
+    // injecao de dependencias: PedidoRepository, EmailService...
+    // para desacoplar a representação das informacoes
+    // podemos criar os handles, um para representar os dados e uma para executar.
     public GeraPedido(String cliente, BigDecimal valorOrcamento, int quantidadeItens) {
         this.cliente = cliente;
         this.valorOrcamento = valorOrcamento;
         this.quantidadeItens = quantidadeItens;
     }
 
-    public void executa() {
-        //Logica de construcao agora fica centralizada aqui.
-        Orcamento orcamento = new Orcamento(valorOrcamento, quantidadeItens);
-        Pedido pedido = new Pedido(cliente, LocalDateTime.now(), orcamento);
+    //podemos melhorar o padrão utilizando polimorfismo,
+    //criando uma interface e implementando em todas classes command
+    //um avariacao e o Command Handle
 
-        System.out.println("Salvar pedido no banco");
-        System.out.println("Enviar email com dados do pedido.");
+    public String getCliente() {
+        return cliente;
+    }
+
+    public BigDecimal getValorOrcamento() {
+        return valorOrcamento;
+    }
+
+    public int getQuantidadeItens() {
+        return quantidadeItens;
     }
 }
