@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 
 public class CalculadoraDeImpostos {
 
+    //Problematica: hoje podemos utilizar apenas 1 imposto
+    //mas agora precisamos passar mais de 1 como resolver?
     public BigDecimal calcular(Orcamento orcamento, Imposto tipoImposto) {
 
         //Solucao: ao inves de usar switch, if, etc..
