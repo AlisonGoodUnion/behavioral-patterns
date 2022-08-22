@@ -17,13 +17,20 @@ Objetivos de aplicar os padrões</br>
 * Crie diferentes ações com Observer
 * Use o Builder para a criação de objetos complicados
 
-Padrões comportamentais utilizados
+Padrões **comportamentais**
 * Strategy
 * Chain of Responsability
 * Template Method
 * State
 * Command
 * Observer
+
+Padrões **Estruturais**
+* Adapter
+* Decorator
+* Composite
+* Facade
+* Proxy
 
 #### Strategy: 
     Como diminuir a complexidade do nosso código, trocando múltiplas condicionais por classes
