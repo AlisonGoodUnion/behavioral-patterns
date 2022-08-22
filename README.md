@@ -29,9 +29,10 @@ Padrões **Estruturais**
 * Adapter
 * Decorator
 * Composite
-* Facade
+* Facades
 * Proxy
-
+FONTE: https://cursos.alura.com.br/course/avancando-design-patterns-java
+ 
 #### Strategy: 
     Como diminuir a complexidade do nosso código, trocando múltiplas condicionais por classes
 
@@ -93,6 +94,14 @@ Padrões **Estruturais**
     Evitamos varias chamadas de varias classes, invertendo controles, e deixando as classes
     notificadas responsaveis por realizar a acao.
     Aplicando Inversao de controle e Injecao de dependencias deixamos a class mais coesa.
+
+#### Adapter
+    Visa fazer uma adaptação de comunicação
+    Ex: Um adaptador como um T ou tomada de 3 pinos que pode ter diferentes tipos
+    assim nosso adaptador esta preparado para diferentes tipos.
+    Uma ponte entre a sua classe e o mundo externo.
+    Assim usando o T não precisamos arrumar a tomada ou cortar o terceiro pino do carregador.
+
 
 #### Simplificando SOLID
 Padrões convém com princípios SOLID: Objetivo escrever códigos mais limpos na POO
