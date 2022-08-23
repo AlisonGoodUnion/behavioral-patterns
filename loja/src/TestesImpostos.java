@@ -14,7 +14,15 @@ public class TestesImpostos {
         //podemos usar o polimorfismo com interface ou classes abstratas
         //para que não tenhamos mais esses if e elses
         //e cada classe tem a sua implementação
-        System.out.println(calculadora.calcular(orcamento, new ICMS()));
-        System.out.println(calculadora.calcular(orcamento, new ISS()));
+        //Decoramos um imposto com outro imposto.
+        System.out.println(calculadora.calcular(orcamento,
+                new ISS(
+                        new ICMS(null)
+                )));
+
+        System.out.println(calculadora.calcular(orcamento,
+                new ICMS(
+                        new ISS(null)
+                )));
     }
 }

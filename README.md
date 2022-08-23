@@ -102,6 +102,21 @@ FONTE: https://cursos.alura.com.br/course/avancando-design-patterns-java
     Uma ponte entre a sua classe e o mundo externo.
     Assim usando o T não precisamos arrumar a tomada ou cortar o terceiro pino do carregador.
 
+#### Decorator
+    Adicionar comportamentos em tempo de execução.
+    Um objeto é composto por ele mesmo alterando o seu comportamento
+    No nosso caso temos um imposto ICMS que podemos compor, ou decorá-lo com +1 
+    Imposto que é o ISS, juntando em um novo cálculo.
+    Como se fosse uma árvore-de-natal com decorações. Ex, vamos colocar uma estrela no topo
+    ou vamos colocar um pisca-pisca, assim a árvore continua arvorar, mas com novas características.
+    
+    O Objetivo é não alterar o codigo e regras existentes
+    permite adicionar novos comportamentos a um objeto, tornando o código bastante flexível e dinâmico.
+    
+    Obs: é comum de ser implementado, possui a mesma interface do objeto que ele está decorando.
+    Outro exemplo de utilizacao é quando precisamos implementar notificacoes em diferentes plataformas
+    Ex: SMS, Facebook, Slack, Whastapp. 
+    
 
 #### Simplificando SOLID
 Padrões convém com princípios SOLID: Objetivo escrever códigos mais limpos na POO

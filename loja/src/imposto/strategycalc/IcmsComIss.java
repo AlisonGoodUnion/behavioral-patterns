@@ -8,12 +8,16 @@ import java.math.BigDecimal;
 // para cada combinacao sera criada uma nova classe?
 // nao esta bacana, vai gerar um problema
 // qual seria a solucao para nao ter mais classes com impostos?
-public class IcmsComIss implements Imposto {
+public class IcmsComIss extends Imposto {
+
+    public IcmsComIss(Imposto outro) {
+        super(outro);
+    }
 
     @Override
-    public BigDecimal calcular(Orcamento orcamento) {
-        BigDecimal icms = new ICMS().calcular(orcamento);
-        BigDecimal iss = new ISS().calcular(orcamento);
+    public BigDecimal realizarCalculo(Orcamento orcamento) {
+        BigDecimal icms = new ICMS(null).calcular(orcamento);
+        BigDecimal iss = new ISS(null).calcular(orcamento);
         return icms.add(iss);
     }
 }
