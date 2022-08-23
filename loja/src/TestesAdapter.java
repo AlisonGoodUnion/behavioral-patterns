@@ -1,4 +1,5 @@
 import http.JavaHttpClient;
+import orcamento.ItemOrcamento;
 import orcamento.Orcamento;
 import orcamento.RegistroDeOrcamento;
 
@@ -9,10 +10,10 @@ public class TestesAdapter {
 
     public static void main(String[] args) throws MalformedURLException {
         BigDecimal valor = BigDecimal.TEN;
-        int quantidadeItens = 10;
-        Orcamento orcamento = new Orcamento(valor, quantidadeItens);
+        Orcamento orcamento = new Orcamento();
         orcamento.aprovar();
         orcamento.finalizar();
+        orcamento.adicionarItem(new ItemOrcamento(valor));
 
         RegistroDeOrcamento registroDeOrcamento = new RegistroDeOrcamento(new JavaHttpClient());
         registroDeOrcamento.registrar(orcamento);

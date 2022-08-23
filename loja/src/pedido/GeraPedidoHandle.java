@@ -18,7 +18,7 @@ public class GeraPedidoHandle {
     //Separamos dados de construcao de comportamentos.
     public void execute(GeraPedido dados) {
         //Logica de construcao agora fica centralizada aqui.
-        Orcamento orcamento = new Orcamento(dados.getValorOrcamento(), dados.getQuantidadeItens());
+        Orcamento orcamento = new Orcamento();
         Pedido pedido = new Pedido(dados.getCliente(), LocalDateTime.now(), orcamento);
         acoes.forEach(acao -> acao.executarAcao(pedido));
     }
