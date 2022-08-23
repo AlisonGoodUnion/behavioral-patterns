@@ -31,9 +31,9 @@ Padrões **Estruturais**
 * Composite
 * Facades
 * Proxy
-FONTE: https://cursos.alura.com.br/course/avancando-design-patterns-java
- 
-#### Strategy: 
+  FONTE: https://cursos.alura.com.br/course/avancando-design-patterns-java
+
+#### Strategy:
     Como diminuir a complexidade do nosso código, trocando múltiplas condicionais por classes
 
     Que tipo de problema o padrão Strategy visa resolver?
@@ -55,7 +55,7 @@ FONTE: https://cursos.alura.com.br/course/avancando-design-patterns-java
     Diferente do Strategy, aqui eu não sei de cara o que quero aplicar.
     Então precisamos verificar para cada tipo de ação se devemos aplicar ou não.
     Então o primeiro tipo/etapa sabe se aplica ou passa para a próxima, vamos escalando o processo até a etapa final.
-         
+
 #### Template Method
     Que tipo de problema o padrão Chain of Responsability visa resolver?
     O padrão Template Method favorece o reaproveitamento de códigos comuns entre classes,
@@ -116,7 +116,17 @@ FONTE: https://cursos.alura.com.br/course/avancando-design-patterns-java
     Obs: é comum de ser implementado, possui a mesma interface do objeto que ele está decorando.
     Outro exemplo de utilizacao é quando precisamos implementar notificacoes em diferentes plataformas
     Ex: SMS, Facebook, Slack, Whastapp. 
+
+#### Composite
+    Irmão do decorator, como strategy é irmão do state.
+    Diferente do decorator que decora de forma dinamica para alterar valores
+    (add em tempo de execucao)
+    no composite a gente compões objetos, basicamente estamos compondo como se fosse 
+    uma estrutura de arvore.
     
+    Ex: Ao implementar uma interface que permita representar ItemOrcamentos 
+    e Orcamentos de forma semelhante, podemos percorrer essa lista de Orcavels facilmente, 
+    para calcular o valor do orçamento, que é a raiz da árvore.
 
 #### Simplificando SOLID
 Padrões convém com princípios SOLID: Objetivo escrever códigos mais limpos na POO
@@ -143,7 +153,7 @@ Poderíamos separar classes de repository.
     OrdemConsultaRepository(apenas funções/metodos de consultas)
     OrdemRepository(Funções de save/update/delete)
 
-##### OCP — Aberto para extensão mas Fechado para alteração. 
+##### OCP — Aberto para extensão mas Fechado para alteração.
 Caso exista a necessidade de uma nova funcionalidade, devemos estender e não alterar códigos já existentes.
 
     Ex: Caso você tenha uma classe com 2 IF, para decidir qual pagamento  1 para PJ outro para CLT
@@ -154,7 +164,7 @@ Caso exista a necessidade de uma nova funcionalidade, devemos estender e não al
     Separe os comportamentos extensíveis por trás de uma interface e inverta as dependências.
 
 
-###### Implementação: 
+###### Implementação:
     criar uma interface com uma função
     Ex: pagamento() e criar classes uma para cada IF, que implementam a interface, 
     obrigando a implementação da função pagamento, assim a classe que processa os pagamentos,
@@ -164,8 +174,8 @@ Caso exista a necessidade de uma nova funcionalidade, devemos estender e não al
 
 ##### LSP — Liskov Substitution Principle (Barbara Liskov 1987)
 Definição particular para o conceito de subtipo.
-    
-    
+
+
     Se para cada objeto o1 do tipo S há um objeto o2 do tipo T
     de forma que, para todos os programas P definidos em termos de T
     o comportamento de P é inalterado quando o o1 é substituído por o2
@@ -180,14 +190,14 @@ Podemos passar como param , tanto a classe pai como a classe derivada.
     tanta a Pessoa quanto o Usuario podem ser passados como param
     pois Pessoa é Herança de Usuario.
 
-###### Violações do LSP:      
-Para evitar essas violações, é necessário estruturar bem as abstrações. 
+###### Violações do LSP:
+Para evitar essas violações, é necessário estruturar bem as abstrações.
 Podemos usar Injeções de dependências e outros princípios SOLID.
 
     Sobrescrever/implementar métodos que não fazem nada;
     Lançar uma exceção inesperada;
     Retornar valores de tipos diferentes da classe Pai;
-    
+
 ##### ISP — Interface Segregation Principle:
 Não podemos forçar uma classe a implementar interfaces e métodos que ela não vá utilizar.
 
@@ -215,7 +225,7 @@ Dependa de abstração e não de implementações.
     
     Abstrações não devem depender de detalhes,
     detalhes devem depender de abstrações.
-   
+
 **Inversão de Dependência é Diferente de Injeção de Dependêcia.**
 
 **Mas estão relacionadas.**
