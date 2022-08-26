@@ -24,12 +24,13 @@ Padrões **comportamentais**
 * State
 * Command
 * Observer
+  FONTE: https://cursos.alura.com.br/course/introducao-design-patterns-java
 
 Padrões **Estruturais**
 * Adapter
 * Decorator
 * Composite
-* Facades
+* Facade
 * Proxy
   FONTE: https://cursos.alura.com.br/course/avancando-design-patterns-java
 
@@ -127,6 +128,34 @@ Padrões **Estruturais**
     Ex: Ao implementar uma interface que permita representar ItemOrcamentos 
     e Orcamentos de forma semelhante, podemos percorrer essa lista de Orcavels facilmente, 
     para calcular o valor do orçamento, que é a raiz da árvore.
+
+#### Facade
+    Quando temos um processo que envolve várias etapas, classes chamadas de métodos
+    ao invés de expor a complexidade para o cliente (cliente deve saber quais métodos chamar, ordem de execução dos métodos etc...)
+    ele simplesmente chama uma fachada.
+    Um método que encapsula e abstrai, livrando o cliente desses detalhes internos.
+    Melhoramos o acoplamento e não estamos expõe particularidades da classe.
+
+ ``` java
+Exemplo: Imagine um processo de transferência de valor entre duas contas.
+o cliente teria todo o trabalho de sempre realizar todos os passos e ordem
+(executar fora de ordem pode dar problema) dessa forma a interface expões detalhes
+o mais fácil seria criar uma classe FACADE escondendo os detalhes.
+Ex: Classe A chama a B, C, D.
+     
+    Conta minhaConta = new Conta();
+    Conta outra = new Conta();
+    BigDecimal valorTransferencia = new BigDecimal("100");
+    
+    Transferencia transferencia = new Transferencia();
+    transferecia.validarConta(minhaConta);
+    transferecia.validarConta(outra);
+    transferecia.checarSaldo(minhaConta, valorTransferencia);
+    
+    transferecia.executar(minhaConta, outra, valorTransferencia);
+    //o ideal seria deixar toda a logica de transferencia dentro do executar.    
+ ```
+
 
 #### Simplificando SOLID
 Padrões convém com princípios SOLID: Objetivo escrever códigos mais limpos na POO
