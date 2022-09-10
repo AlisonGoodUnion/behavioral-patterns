@@ -1,4 +1,4 @@
-# behavioral-patterns
+    # behavioral-patterns
 
 Objetivo do repositório é apenas armazenar códigos de treinamentos da Alura.
 
